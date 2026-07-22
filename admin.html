@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8" />
+<script src="theme.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ordis Admin — დაშბორდი</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" />
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <a href="/home" class="logo admin-logo"><span class="logo-mark">O</span>Ordis</a>
+    <nav class="admin-nav">
+      <button class="admin-nav-link is-active" data-panel="overview">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 13h4v8H3v-8ZM10 3h4v18h-4V3ZM17 9h4v12h-4V9Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        მიმოხილვა
+      </button>
+      <button class="admin-nav-link" data-panel="members">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M16 11a4 4 0 1 0-4-4M6 20v-1a4 4 0 0 1 4-4h1M12.5 20v-1a4 4 0 0 1 4-4h1a4 4 0 0 1 4 4v1M9 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        წევრები
+      </button>
+      <button class="admin-nav-link" data-panel="pricing">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18M17 7.5c0-1.933-2.239-3.5-5-3.5s-5 1.567-5 3.5S9.239 11 12 11s5 1.567 5 3.5-2.239 3.5-5 3.5-5-1.567-5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        ფასები
+      </button>
+      <button class="admin-nav-link" data-panel="settings">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="1.8"/><path d="M19.4 13a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V19a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H4a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V4a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H20a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1v0Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        პარამეტრები
+      </button>
+    </nav>
+    <div class="admin-sidebar-foot">
+      <a class="btn btn-outline btn-block" href="/home" target="_blank" rel="noopener">საიტის ნახვა</a>
+      <button class="btn btn-block admin-logout" id="logout-btn">გასვლა</button>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <span class="admin-topbar-label">ადმინისტრირების პანელი</span>
+      <button class="theme-toggle" id="theme-toggle" aria-label="ღია/მუქი რეჟიმის გადართვა" aria-pressed="false">
+        <span class="icon-sun"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.25M12 19.25v2.25M4.22 4.22l1.59 1.59M18.19 18.19l1.59 1.59M2.5 12h2.25M19.25 12h2.25M4.22 19.78l1.59-1.59M18.19 5.81l1.59-1.59" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <span class="icon-moon" hidden><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.5 14.5c-1.1.35-2.28.5-3.5.5-6.35 0-11.5-5.15-11.5-11.5 0-1.22.15-2.4.5-3.5A10.5 10.5 0 0 0 3 11.5C3 17.85 8.15 23 14.5 23A10.5 10.5 0 0 0 20.5 14.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+      </button>
+    </div>
+    <!-- Overview -->
+    <section class="admin-panel is-active" data-panel="overview">
+      <div class="admin-panel-head">
+        <h1>მიმოხილვა</h1>
+        <p>წევრებისა და პაკეტების ზოგადი სურათი.</p>
+      </div>
+
+      <div class="kpi-row" id="kpi-row"></div>
+
+      <div class="admin-card">
+        <div class="admin-card-head">
+          <h2>ახალი წევრები — ბოლო 14 დღე</h2>
+        </div>
+        <div id="chart-daily" class="chart-daily"></div>
+      </div>
+
+      <div class="admin-grid-2">
+        <div class="admin-card">
+          <div class="admin-card-head"><h2>პაკეტების მიხედვით</h2></div>
+          <div id="chart-by-plan" class="ordinal-chart"></div>
+        </div>
+        <div class="admin-card">
+          <div class="admin-card-head"><h2>სტატუსების მიხედვით</h2></div>
+          <div id="chart-by-status" class="ordinal-chart"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Members -->
+    <section class="admin-panel" data-panel="members">
+      <div class="admin-panel-head">
+        <h1>წევრები</h1>
+        <p>დარეგისტრირებული განაცხადების მართვა.</p>
+      </div>
+
+      <div class="admin-card">
+        <div class="filters-row">
+          <input type="search" id="member-search" placeholder="ძებნა სახელით, ელფოსტით ან ნომრით..." />
+          <select id="filter-status">
+            <option value="">ყველა სტატუსი</option>
+          </select>
+          <select id="filter-plan">
+            <option value="">ყველა პაკეტი</option>
+          </select>
+          <span class="filters-count" id="members-count"></span>
+        </div>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>სახელი</th>
+                <th>ელ. ფოსტა</th>
+                <th>ტელეფონი</th>
+                <th>პაკეტი</th>
+                <th>სტატუსი</th>
+                <th>დარეგისტრირდა</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="members-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="admin-panel" data-panel="pricing">
+      <div class="admin-panel-head">
+        <h1>ფასები</h1>
+        <p>პაკეტების მართვა — ცვლილება ავტომატურად აისახება საიტზე.</p>
+      </div>
+      <div class="plans-grid" id="plans-grid"></div>
+      <button class="btn btn-outline" id="add-plan-btn">+ ახალი პაკეტის დამატება</button>
+    </section>
+
+    <!-- Settings -->
+    <section class="admin-panel" data-panel="settings">
+      <div class="admin-panel-head">
+        <h1>პარამეტრები</h1>
+        <p>ადმინისტრატორის პაროლის განახლება.</p>
+      </div>
+      <div class="admin-card admin-card--narrow">
+        <form id="password-form">
+          <div class="field">
+            <label for="current_password">მიმდინარე პაროლი</label>
+            <input type="password" id="current_password" autocomplete="current-password" />
+          </div>
+          <div class="field">
+            <label for="new_password">ახალი პაროლი</label>
+            <input type="password" id="new_password" autocomplete="new-password" />
+          </div>
+          <p class="form-status" id="password-status" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn btn-primary">პაროლის განახლება</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</div>
+
+<template id="plan-card-template">
+  <div class="plan-card" data-plan-id="">
+    <div class="plan-card-head">
+      <input type="text" class="plan-name" placeholder="პაკეტის სახელი" />
+      <label class="plan-popular"><input type="checkbox" class="plan-is-popular" /> პოპულარული</label>
+    </div>
+    <div class="plan-price-row">
+      <input type="text" class="plan-price" placeholder="ფასი (მაგ. 0, 1, მორგებული)" />
+      <input type="text" class="plan-currency" placeholder="₾" />
+      <input type="text" class="plan-period" placeholder="თვე" />
+    </div>
+    <input type="text" class="plan-format" placeholder="დამატებითი წარწერა (მაგ. მოსწავლეზე / თვე)" />
+    <textarea class="plan-description" placeholder="აღწერა" rows="2"></textarea>
+    <textarea class="plan-features" placeholder="თითო შესაძლებლობა ახალ ხაზზე" rows="5"></textarea>
+    <div class="plan-card-actions">
+      <button type="button" class="btn btn-primary plan-save">შენახვა</button>
+      <button type="button" class="btn btn-outline plan-delete">წაშლა</button>
+    </div>
+    <p class="form-status plan-status"></p>
+  </div>
+</template>
+
+<script src="admin.js" data-page="dashboard"></script>
+</body>
+</html>

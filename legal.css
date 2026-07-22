@@ -1,0 +1,59 @@
+.legal-page {
+  padding: 3.5rem 0 5rem;
+}
+
+.legal-container {
+  max-width: 42rem;
+}
+
+.legal-container h1 {
+  margin-top: 0.75rem;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 800;
+}
+
+.legal-updated {
+  margin-top: 0.5rem;
+  color: var(--ink-500);
+  font-size: 0.875rem;
+}
+
+.legal-container > p,
+.legal-container > ul {
+  margin-top: 1.25rem;
+  color: var(--ink-700);
+  line-height: 1.7;
+}
+
+.legal-container ul {
+  padding-left: 1.25rem;
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.legal-note {
+  background: var(--surface-muted);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  font-size: 0.9375rem;
+}
+
+.legal-container h2 {
+  margin-top: 2.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.legal-container a {
+  color: var(--tint-coral-ink);
+  text-decoration: underline;
+}
+
+.site-header .btn-outline {
+  height: 2.5rem;
+  padding: 0 1.125rem;
+  font-size: 0.875rem;
+}
